@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  /* Shared */
+  --radius-window: 12px;
+  --shadow-window: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  /* macOS Theme */
+  --macos-bg: #1a1a2e;
+  --macos-window: #2d2d3a;
+  --macos-border: #3d3d4a;
+  --macos-accent: #007aff;
+  --macos-text: #e5e5e5;
+  --macos-text-secondary: #a0a0a0;
+  
+  /* Windows Theme */
+  --windows-bg: #0d1117;
+  --windows-window: #161b22;
+  --windows-border: #30363d;
+  --windows-accent: #58a6ff;
+  --windows-text: #e6edf3;
+  --windows-text-secondary: #8b949e;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+  font-family: var(--font-sans);
+}
+
+body {
+  color: var(--macos-text);
+  background: var(--macos-bg);
+}
+
+/* Custom scrollbar for terminal */
+.terminal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(0, 122, 255, 0.3);
+}
+
+/* Prevent text selection on UI elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Window drag handle */
+.window-drag {
+  cursor: grab;
+}
+
+.window-drag:active {
+  cursor: grabbing;
+}
+
+/* macOS traffic light buttons */
+.traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+  cursor: default;
+  border: none;
+  outline: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.traffic-light:hover {
+  filter: brightness(1.1);
+}
+
+.traffic-light:active {
+  filter: brightness(0.9);
+}
+
+/* Windows title bar buttons */
+.win-btn {
+  width: 46px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.1s ease;
+}
+
+.win-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.win-btn-close:hover {
+  background-color: #c42b1c;
+}
+
+/* Blinking cursor for terminal */
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Typewriter effect */
+.typewriter {
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+/* Desktop icon hover */
+.desktop-icon {
+  transition: all 0.15s ease;
+}
+
+.desktop-icon:hover {
+  transform: scale(1.05);
+}
+
+.desktop-icon:active {
+  transform: scale(0.95);
+}
+
+/* Taskbar glass effect */
+.taskbar-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Window glass effect */
+.window-glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth transitions for theme changes */
+.theme-transition {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
