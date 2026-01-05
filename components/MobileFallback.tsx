@@ -111,10 +111,15 @@ export default function MobileFallback() {
         return (
           <div className="space-y-3">
             <p className="text-white/70 text-sm">{siteContent.architecture.summary}</p>
-            {siteContent.architecture.principles.slice(0, 3).map((p, i) => (
-              <div key={i} className="p-2 rounded bg-white/5">
-                <div className="text-white text-sm font-medium">{p.title}</div>
-                <div className="text-white/50 text-xs mt-1">{p.description}</div>
+            {siteContent.architecture.topics.slice(0, 3).map((topic) => (
+              <div key={topic.id} className="p-2 rounded bg-white/5">
+                <div className="text-white text-sm font-medium">{topic.title}</div>
+                <div className="text-white/50 text-xs mt-1">{topic.overview}</div>
+                {topic.principles && topic.principles.length > 0 && (
+                  <div className="text-white/40 text-xs mt-2">
+                    {topic.principles[0]}
+                  </div>
+                )}
               </div>
             ))}
           </div>

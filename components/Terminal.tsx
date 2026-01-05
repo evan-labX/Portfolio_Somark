@@ -183,11 +183,17 @@ ${contact.message}
 
   const formatArchitecture = () => {
     const { architecture } = siteContent
-    let output = `\n${architecture.summary}\n\nPrinciples:\n─────────────────\n`
+    let output = `\n${architecture.summary}\n\nTopics:\n─────────────────\n`
     
-    architecture.principles.forEach(p => {
-      output += `\n▸ ${p.title}\n`
-      output += `  ${p.description}\n`
+    architecture.topics.forEach(topic => {
+      output += `\n▸ ${topic.title}\n`
+      output += `  ${topic.overview}\n`
+      if (topic.principles && topic.principles.length > 0) {
+        output += `  Key principles:\n`
+        topic.principles.slice(0, 2).forEach(p => {
+          output += `    • ${p}\n`
+        })
+      }
     })
     
     return output

@@ -62,18 +62,6 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
       ),
       action: () => { window.open(siteContent.contact.resume, '_blank'); onClose(); },
     },
-    {
-      id: 'coffee',
-      label: 'Buy Me A Coffee',
-      badge: siteContent.badges.coffee,
-      badgeColor: 'bg-green-500',
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-          <path d="M2 21h18v-2H2M20 8h-2V5h2m0-2H4v10a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-3h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
-        </svg>
-      ),
-      action: () => { window.open(siteContent.contact.coffee, '_blank'); onClose(); },
-    },
   ]
 
   // Curated top skills - most important ones
@@ -212,9 +200,7 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
                     </div>
                     {app.badge && (
                       <span 
-                        className={`absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold text-white ${
-                          app.badgeColor || 'bg-red-500'
-                        }`}
+                        className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold text-white bg-red-500"
                       >
                         {app.badge}
                       </span>
