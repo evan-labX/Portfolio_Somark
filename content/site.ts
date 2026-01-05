@@ -20,21 +20,21 @@ export const siteContent = {
   terminal: {
     welcome: `
 ┌───────────────────────────────────────────────────────────────────────────────┐
-│                                                                           │
-│   Welcome to Atadzhan's Workstation                                       │
-│   Principal AI/ML Engineer | London, UK                                   │
-│                                                                           │
-│   Autonomous Systems • Multi-Agent Architectures                          │
-│   Long-Context RAG & AI Orchestration • Cloud Data & MLOps                │
-│                                                                           │
-│   "Building autonomous AI systems that are reliable,                      │
-│    observable, and production-ready."                                     │
-│                                                                           │
-│   13+ years designing, scaling, and operating AI systems                  │
-│   across research, fintech, cloud platforms, and enterprise.              │
-│                                                                           │
-│   Type 'help' to explore available commands.                              │
-│                                                                           │
+│                                                                            │
+│   Welcome to Atadzhan's Workstation                                        │
+│   Principal AI/ML Engineer | London, UK                                    │
+│                                                                            │
+│   Autonomous Systems • Multi-Agent Architectures                           │
+│   Long-Context RAG & AI Orchestration • Cloud Data & MLOps                 │
+│                                                                            │
+│   "Building autonomous AI systems that are reliable,                       │
+│    observable, and production-ready."                                      │
+│                                                                            │
+│   13+ years designing, scaling, and operating AI systems                   │
+│   across research, fintech, cloud platforms, and enterprise.               │
+│                                                                            │
+│   Type 'help' to explore available commands.                               │
+│                                                                            │
 └───────────────────────────────────────────────────────────────────────────────┘
 `,
     help: `
