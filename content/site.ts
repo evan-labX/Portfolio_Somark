@@ -19,7 +19,7 @@ export const siteContent = {
 
   terminal: {
     welcome: `
-┌───────────────────────────────────────────────────────────────────────┐
+┌───────────────────────────────────────────────────────────────────────────────┐
 │                                                                       │
 │   Welcome to Atadzhan's Workstation                                   │
 │   Principal AI/ML Engineer | London, UK                               │
@@ -35,7 +35,7 @@ export const siteContent = {
 │                                                                       │
 │   Type 'help' to explore available commands.                          │
 │                                                                       │
-└───────────────────────────────────────────────────────────────────────┘
+└───────────────────────────────────────────────────────────────────────────────┘
 `,
     help: `
 Available Commands:
