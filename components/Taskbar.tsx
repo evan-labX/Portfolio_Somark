@@ -123,69 +123,92 @@ export default function Taskbar() {
 
           {/* Pinned & Open Windows */}
           <AnimatePresence>
-            {openWindows.map((window) => (
-              <motion.button
-                key={window.id}
-                className={`w-11 h-11 flex items-center justify-center rounded-md transition-all duration-150 relative group ${
-                  activeWindowId === window.id 
-                    ? 'bg-white/15' 
-                    : 'hover:bg-white/10'
-                }`}
-                initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-                whileTap={{ scale: 0.92 }}
-                onClick={() => {
-                  if (window.isMinimized) {
-                    openWindow(window.id)
-                  } else if (activeWindowId === window.id) {
-                    minimizeWindow(window.id)
-                  } else {
-                    focusWindow(window.id)
-                  }
-                }}
-              >
-                {/* Icon */}
-                {window.id === 'terminal' && (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#00a4ef]">
-                    <rect x="2" y="3" width="20" height="18" rx="2" fill="currentColor" opacity="0.2"/>
-                    <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-                    <polyline points="6 15 10 11 6 7" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <line x1="12" y1="17" x2="18" y2="17" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                )}
-                {window.id === 'projects' && (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-[#ffb900]">
-                    <path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/>
-                  </svg>
-                )}
-                {window.id === 'architecture' && (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-[#00a4ef]">
-                    <path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" opacity="0.3"/>
-                    <path d="M21 14h-2v3h-3v2h3v3h2v-3h3v-2h-3v-3zM3 3h7v7H3V3zm2 2v3h3V5H5zm-2 9h7v7H3v-7zm2 2v3h3v-3H5zm9-13h7v7h-7V3zm2 2v3h3V5h-3z"/>
-                  </svg>
-                )}
-                
-                {/* Active Indicator - Windows 11 style underline */}
-                {window.isOpen && !window.isMinimized && (
-                  <motion.div
-                    className={`absolute -bottom-0.5 rounded-full ${
-                      activeWindowId === window.id 
-                        ? 'w-4 h-[3px] bg-[#00a4ef]' 
-                        : 'w-1.5 h-[3px] bg-white/50'
-                    }`}
-                    layoutId={`indicator-${window.id}`}
-                    transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-                  />
-                )}
+            {openWindows.map((window) => {
+              // Get icon for window - matching desktop icons
+              const getWindowIcon = (id: string) => {
+                switch (id) {
+                  case 'terminal':
+                    return (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#00a4ef]">
+                        <rect x="2" y="3" width="20" height="18" rx="2" fill="currentColor" opacity="0.2"/>
+                        <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                        <polyline points="6 15 10 11 6 7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                        <line x1="12" y1="17" x2="18" y2="17" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    )
+                  case 'projects':
+                    return (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-blue-400">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    )
+                  case 'architecture':
+                    return (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-400">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                      </svg>
+                    )
+                  case 'gallery':
+                    return (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-400">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                    )
+                  default:
+                    return null
+                }
+              }
 
-                {/* Tooltip */}
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[#2d2d2d] rounded-md text-xs text-white/90 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg border border-white/10">
-                  {window.title}
-                </div>
-              </motion.button>
-            ))}
+              return (
+                <motion.button
+                  key={window.id}
+                  className={`w-11 h-11 flex items-center justify-center rounded-md transition-all duration-150 relative group ${
+                    activeWindowId === window.id 
+                      ? 'bg-white/15' 
+                      : 'hover:bg-white/10'
+                  }`}
+                  initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.5, y: 20 }}
+                  transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                  whileTap={{ scale: 0.92 }}
+                  onClick={() => {
+                    if (window.isMinimized) {
+                      openWindow(window.id)
+                    } else if (activeWindowId === window.id) {
+                      minimizeWindow(window.id)
+                    } else {
+                      focusWindow(window.id)
+                    }
+                  }}
+                >
+                  {/* Icon */}
+                  {getWindowIcon(window.id)}
+                  
+                  {/* Active Indicator - Windows 11 style underline */}
+                  {window.isOpen && !window.isMinimized && (
+                    <motion.div
+                      className={`absolute -bottom-0.5 rounded-full ${
+                        activeWindowId === window.id 
+                          ? 'w-4 h-[3px] bg-[#00a4ef]' 
+                          : 'w-1.5 h-[3px] bg-white/50'
+                      }`}
+                      layoutId={`indicator-${window.id}`}
+                      transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                    />
+                  )}
+
+                  {/* Tooltip */}
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[#2d2d2d] rounded-md text-xs text-white/90 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg border border-white/10">
+                    {window.title}
+                  </div>
+                </motion.button>
+              )
+            })}
           </AnimatePresence>
         </motion.div>
 
