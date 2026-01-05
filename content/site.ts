@@ -715,123 +715,128 @@ It reflects internal engineering thinking — not marketing material.`,
     location: 'London, UK',
     github: 'https://github.com/AI-God-Dev',
     linkedin: 'https://www.linkedin.com/in/atadzhan-baratov-175656145/',
-    resume: '/resume.pdf',
+    resume: '/Atadzhan Baratov-Resume - 2026.pdf',
     message: "Open to discussing agentic AI systems, autonomous architectures, or production AI challenges. Let's build something reliable.",
   },
 
   systemDesignGallery: [
     {
-      id: "agent-lifecycle-diagram",
-      title: "Agent Lifecycle & Execution Loop",
-      category: "Agentic Systems",
-      image: "/diagrams/agent-lifecycle.png",
-      context: "Architecture post / internal design review",
-      description:
-        "A high-level view of how autonomous agents progress through research, planning, execution, validation, and termination.",
-      keyTakeaways: [
-        "Explicit state transitions",
-        "Clear termination conditions",
-        "Budget-aware execution",
-      ],
-    },
-    {
-      id: "multi-agent-coordination",
-      title: "Multi-Agent Coordination Model",
-      category: "Agentic Systems",
-      image: "/diagrams/multi-agent-coordination.png",
-      context: "Agent systems design discussion",
-      description:
-        "Illustrates planner/worker/validator roles and synchronization points in a multi-agent system.",
-      keyTakeaways: [
-        "Role specialization",
-        "Controlled memory sharing",
-        "Conflict resolution boundaries",
-      ],
-    },
-    {
-      id: "agent-rag-architecture",
-      title: "Agent-Optimized RAG Architecture",
+      id: "scalable-production-agentic-rag-pipeline",
+      title: "Scalable, Production-Grade Agentic RAG Pipeline",
       category: "RAG & Retrieval",
-      image: "/diagrams/agent-rag.png",
-      context: "Technical post on agentic RAG",
+      image: "/diagrams/Scalable-RAG-Pipeline.png",
+      context: "System design diagram for large-scale, production agentic RAG systems",
       description:
-        "Shows how retrieval timing and memory pruning align with agent planning phases.",
+        "Presents a layered, production-grade agentic RAG architecture designed to scale across large datasets and high query volumes, while maintaining low latency, observability, and operational reliability.",
       keyTakeaways: [
-        "Hierarchical chunking",
-        "Hybrid retrieval",
-        "Reduced context thrashing",
+        "Layered architecture cleanly separates data ingestion, agent reasoning, model serving, and infrastructure concerns",
+        "Agentic pipelines enable parallel reasoning, retrieval, and tool usage instead of linear request flows",
+        "Autoscaling GPU and CPU workloads is essential for cost-efficient, low-latency RAG at scale",
+        "Vector databases, graph stores, and LLM services must be orchestrated as distributed systems",
+        "Monitoring, evaluation, and tracing are mandatory layers for operating agentic RAG reliably in production",
       ],
     },
+    
     {
-      id: "ml-platform-overview",
-      title: "Enterprise ML Platform Overview",
-      category: "ML Platforms",
-      image: "/diagrams/ml-platform.png",
-      context: "Platform architecture documentation",
+      id: "self-improving-agentic-rag",
+      title: "Self-Improving Agentic RAG System",
+      category: "RAG & Retrieval",
+      image: "/diagrams/Self-Improving-Agentic-RAG-System.png",
+      context: "System design diagram for agentic RAG optimization",
       description:
-        "End-to-end view of training, deployment, monitoring, and governance layers.",
+        "Illustrates an agentic RAG system that continuously improves itself by combining specialist agent collaboration with multi-dimensional evaluation and evolutionary optimization.",
       keyTakeaways: [
-        "Separation of concerns",
-        "Built-in observability",
-        "Compliance-ready design",
+        "Agentic RAG behaves as a high-dimensional design space rather than a fixed pipeline",
+        "Multi-dimensional evaluation enables trade-off analysis beyond single-metric optimization",
+        "Specialist agents can diagnose weaknesses and propose targeted procedural improvements",
+        "Pareto-front analysis surfaces optimal strategies instead of a single best configuration",
+        "Human-in-the-loop oversight remains essential for high-stakes domains like healthcare",
       ],
     },
+    
     {
-      id: "evaluation-framework",
-      title: "Evaluation & Observability Pipeline",
-      category: "Evaluation & Observability",
-      image: "/diagrams/evaluation-pipeline.png",
-      context: "Internal documentation",
-      description:
-        "Comprehensive evaluation pipeline for non-deterministic agents with trace-based analysis and behavioral regression tracking.",
-      keyTakeaways: [
-        "Trace-driven debugging",
-        "Behavioral regression detection",
-        "Cost attribution",
-      ],
-    },
-    {
-      id: "production-governance",
-      title: "Production Deployment & Governance",
-      category: "Security & Governance",
-      image: "/diagrams/production-governance.png",
-      context: "Design review",
-      description:
-        "Security and governance architecture for production agent systems with execution isolation and audit logging.",
-      keyTakeaways: [
-        "Least-privilege execution",
-        "Immutable audit logs",
-        "Compliance boundaries",
-      ],
-    },
-    {
-      id: "mlops-infrastructure",
-      title: "MLOps Infrastructure Stack",
-      category: "MLOps & Infra",
-      image: "/diagrams/mlops-infra.png",
-      context: "Infrastructure documentation",
-      description:
-        "Scalable MLOps infrastructure spanning training, deployment, monitoring, and governance across multi-cloud environments.",
-      keyTakeaways: [
-        "Multi-cloud deployment",
-        "CI/CD integration",
-        "Cost optimization",
-      ],
-    },
-    {
-      id: "tool-first-execution",
-      title: "Tool-First Execution Architecture",
+      id: "production-grade-agentic-architecture",
+      title: "Production-Grade Agentic AI System Architecture",
       category: "Agentic Systems",
-      image: "/diagrams/tool-first.png",
-      context: "Agent design principles",
+      image: "/diagrams/Production-Grade-Agentic-System.png",
+      context: "System design diagram for deploying agentic AI in production",
       description:
-        "LLM acts as control plane while tools handle actual execution, enabling testing, mocking, and observability at tool boundaries.",
+        "Depicts a layered architecture for running agentic AI systems reliably in production, separating concerns such as agent orchestration, context management, middleware, security, and infrastructure.",
       keyTakeaways: [
-        "Typed tool schemas",
-        "Stateless tool execution",
-        "Structured error handling",
+        "Production agentic systems require explicit architectural layers, not monolithic services",
+        "Clear separation between service layer, middleware, and infrastructure improves reliability and evolvability",
+        "Agent behavior and system reliability must be monitored as independent but equally critical dimensions",
+        "Context and memory management are first-class production concerns, not implementation details",
+        "Observability across latency, cost, failures, and agent behavior is essential for operating at scale",
       ],
     },
+    {
+      id: "adaptive-agentic-rag-langgraph",
+      title: "Adaptive Agentic RAG with Dynamic Query Routing",
+      category: "RAG & Retrieval",
+      image: "/diagrams/Agentic-Adaptive-RAG-with-LangGraph.gif",
+      context: "System design diagram for adaptive, production-grade agentic RAG",
+      description:
+        "Shows an adaptive agentic RAG workflow where LLM agents dynamically decide whether to retrieve documents, invoke tools, search external sources, or generate responses directly based on query analysis and response validation.",
+      keyTakeaways: [
+        "Adaptive RAG introduces decision points that determine when retrieval is necessary instead of retrieving by default",
+        "Query rewriting improves retrieval quality before engaging downstream sources",
+        "Dynamic routing enables agents to choose between vector databases, tools, or external search based on intent",
+        "Response relevance is explicitly evaluated before finalizing output, enabling self-correction loops",
+        "Agentic control flow (as implemented with LangGraph) is essential for production-safe, non-linear RAG systems",
+      ],
+    },
+    {
+      id: "traditional-vs-agentic-rag",
+      title: "Traditional RAG vs Agentic RAG",
+      category: "RAG & Retrieval",
+      image: "/diagrams/Agentic-RAG-with-LangGraph.webp",
+      context: "Conceptual system design comparison",
+      description:
+        "Compares a linear, single-pass RAG pipeline with an agentic RAG architecture that introduces planning, query refinement, dynamic routing, and autonomous decision-making across multiple information sources.",
+      keyTakeaways: [
+        "Traditional RAG follows a fixed retrieve-then-generate flow with limited adaptability",
+        "Agentic RAG introduces planning, observation, and action loops that enable iterative refinement",
+        "Dynamic routing allows agents to choose between vector search, keyword search, or web search based on query intent",
+        "Agentic systems can detect out-of-domain questions and autonomously expand their information sources",
+        "The added control flow improves robustness in real-world, unpredictable user queries",
+      ],
+    },
+    {
+      id: "end-to-end-mlops-architecture",
+      title: "End-to-End MLOps Architecture & Workflow",
+      category: "MLOps & Infra",
+      image: "/diagrams/End-to-End-MLOps-Architecture-and-Workflow.png",
+      context: "System design diagram for production ML lifecycle and automation",
+      description:
+        "Illustrates a comprehensive, end-to-end MLOps architecture covering the full machine learning lifecycle, from business problem formulation and data ingestion to experimentation, automated training pipelines, deployment, monitoring, and continuous improvement.",
+      keyTakeaways: [
+        "MLOps systems must span the entire lifecycle, not just model training and deployment",
+        "Clear separation between data engineering, experimentation, and production pipelines improves scalability and governance",
+        "Feature engineering, metadata tracking, and artifact versioning are foundational for reproducibility",
+        "Workflow orchestration and CI/CD enable reliable automation across training, validation, and deployment stages",
+        "Continuous monitoring and feedback loops are essential for retraining, performance management, and long-term model health",
+      ],
+    },
+    {
+      id: "enterprise-ai-platform-governance-salesforce",
+      title: "Enterprise AI Platform with Governance & Lifecycle Controls",
+      category: "Security & Governance",
+      image: "/diagrams/Enterprise-AI-Platform-Governance.png",
+      context: "System design diagram for unified AI platform integration and governance",
+      description:
+        "Depicts an enterprise AI platform integrated into a core business system, showing how LLM/AI gateways, inference services, artifact versioning, feature stores, monitoring, and access controls combine to support trusted AI deployment at scale.",
+      keyTakeaways: [
+        "A unified AI platform requires clear separation between client apps, core business systems, and AI runtime services",
+        "Governance spans the full lifecycle: data access, model versioning, deployment controls, and auditability",
+        "LLM/AI gateways act as control points for routing, policy enforcement, and safe model access",
+        "Artifact/versioning services and model stores enable reproducibility and controlled rollouts",
+        "Operational monitoring and metrics services are essential for reliability, drift detection, and accountability",
+      ],
+    },
+    
+    
+
   ],
 
   galleryCategories: [
