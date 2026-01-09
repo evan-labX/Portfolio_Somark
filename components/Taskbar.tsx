@@ -5,13 +5,21 @@ import { useWindows } from '@/context/WindowContext'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import StartMenu from './StartMenu'
+import CalendarPopup from './taskbar/CalendarPopup'
+import VolumePopup from './taskbar/VolumePopup'
+import NetworkPopup from './taskbar/NetworkPopup'
+import SearchPanel from './taskbar/SearchPanel'
+import CortanaPanel from './taskbar/CortanaPanel'
+import NotificationCenter from './taskbar/NotificationCenter'
+
+type PopupType = 'none' | 'start' | 'search' | 'cortana' | 'calendar' | 'volume' | 'network' | 'notifications'
 
 export default function Taskbar() {
   const { theme } = useTheme()
   const { windows, focusWindow, openWindow, minimizeWindow, activeWindowId } = useWindows()
   const [time, setTime] = useState('')
   const [date, setDate] = useState('')
-  const [isStartMenuOpen, setIsStartMenuOpen] = useState(false)
+  const [activePopup, setActivePopup] = useState<PopupType>('none')
 
   useEffect(() => {
     const updateTime = () => {
@@ -35,11 +43,35 @@ export default function Taskbar() {
   const isMacOS = theme === 'macos'
   const openWindows = windows.filter(w => w.isOpen)
 
+  // Pinned apps for Windows taskbar
+  const pinnedApps = [
+    {
+      id: 'terminal',
+      title: 'Terminal',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#00a4ef]">
+          <rect x="2" y="3" width="20" height="18" rx="2" fill="currentColor" opacity="0.2"/>
+          <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+          <polyline points="6 15 10 11 6 7" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <line x1="12" y1="17" x2="18" y2="17" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      ),
+    },
+  ]
+
+  const togglePopup = (popup: PopupType) => {
+    setActivePopup(prev => prev === popup ? 'none' : popup)
+  }
+
+  const closeAllPopups = () => {
+    setActivePopup('none')
+  }
+
   if (isMacOS) {
     // macOS Menu Bar (Top)
     return (
       <>
-        <StartMenu isOpen={isStartMenuOpen} onClose={() => setIsStartMenuOpen(false)} />
+        <StartMenu isOpen={activePopup === 'start'} onClose={closeAllPopups} />
         <div
           className="fixed top-0 left-0 right-0 h-7 flex items-center justify-between px-4 taskbar-glass theme-transition z-50"
           style={{
@@ -51,7 +83,7 @@ export default function Taskbar() {
           <div className="flex items-center gap-4">
             <button 
               className="text-white/90 text-sm font-medium hover:text-white"
-              onClick={() => setIsStartMenuOpen(!isStartMenuOpen)}
+              onClick={() => togglePopup('start')}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -76,7 +108,9 @@ export default function Taskbar() {
   // Windows 11 Taskbar (Bottom - Floating Centered Style)
   return (
     <>
-      <StartMenu isOpen={isStartMenuOpen} onClose={() => setIsStartMenuOpen(false)} />
+      <StartMenu isOpen={activePopup === 'start'} onClose={closeAllPopups} />
+      <SearchPanel isOpen={activePopup === 'search'} onClose={closeAllPopups} />
+      <CortanaPanel isOpen={activePopup === 'cortana'} onClose={closeAllPopups} />
       
       {/* Windows 11 Floating Taskbar Container */}
       <div className="fixed bottom-0 left-0 right-0 h-14 flex items-end justify-center pb-2 z-50">
@@ -97,10 +131,10 @@ export default function Taskbar() {
           {/* Start Button */}
           <motion.button
             className={`w-11 h-11 flex items-center justify-center rounded-md transition-all duration-150 ${
-              isStartMenuOpen ? 'bg-white/15' : 'hover:bg-white/10'
+              activePopup === 'start' ? 'bg-white/15' : 'hover:bg-white/10'
             }`}
             whileTap={{ scale: 0.92 }}
-            onClick={() => setIsStartMenuOpen(!isStartMenuOpen)}
+            onClick={() => togglePopup('start')}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[#00a4ef]">
               <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
@@ -109,8 +143,11 @@ export default function Taskbar() {
 
           {/* Search Button */}
           <motion.button
-            className="w-11 h-11 flex items-center justify-center rounded-md hover:bg-white/10 transition-all duration-150"
+            className={`w-11 h-11 flex items-center justify-center rounded-md transition-all duration-150 ${
+              activePopup === 'search' ? 'bg-white/15' : 'hover:bg-white/10'
+            }`}
             whileTap={{ scale: 0.92 }}
+            onClick={() => togglePopup('search')}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/80">
               <circle cx="11" cy="11" r="8"></circle>
@@ -118,24 +155,82 @@ export default function Taskbar() {
             </svg>
           </motion.button>
 
+          {/* Cortana Button */}
+          <motion.button
+            className={`w-11 h-11 flex items-center justify-center rounded-md transition-all duration-150 ${
+              activePopup === 'cortana' ? 'bg-white/15' : 'hover:bg-white/10'
+            }`}
+            whileTap={{ scale: 0.92 }}
+            onClick={() => togglePopup('cortana')}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-[#00b4d8]">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="12" cy="12" r="4" fill="currentColor"/>
+            </svg>
+          </motion.button>
+
           {/* Divider */}
           <div className="w-px h-6 bg-white/10 mx-1" />
 
-          {/* Pinned & Open Windows */}
+          {/* Pinned Apps */}
+          {pinnedApps.map((app) => {
+            const windowState = windows.find(w => w.id === app.id)
+            const isOpen = windowState?.isOpen
+            const isMinimized = windowState?.isMinimized
+            const isActive = activeWindowId === app.id
+
+            return (
+              <motion.button
+                key={app.id}
+                className={`w-11 h-11 flex items-center justify-center rounded-md transition-all duration-150 relative group ${
+                  isActive && !isMinimized
+                    ? 'bg-white/15' 
+                    : 'hover:bg-white/10'
+                }`}
+                whileTap={{ scale: 0.92 }}
+                onClick={() => {
+                  if (!isOpen) {
+                    openWindow(app.id)
+                  } else if (isMinimized) {
+                    openWindow(app.id)
+                  } else if (isActive) {
+                    minimizeWindow(app.id)
+                  } else {
+                    focusWindow(app.id)
+                  }
+                }}
+              >
+                {app.icon}
+                
+                {/* Active/Open Indicator */}
+                {isOpen && (
+                  <motion.div
+                    className={`absolute -bottom-0.5 rounded-full ${
+                      isActive && !isMinimized
+                        ? 'w-4 h-[3px] bg-[#00a4ef]' 
+                        : 'w-1.5 h-[3px] bg-white/50'
+                    }`}
+                    layoutId={`indicator-pinned-${app.id}`}
+                    transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                  />
+                )}
+
+                {/* Tooltip */}
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[#2d2d2d] rounded-md text-xs text-white/90 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg border border-white/10">
+                  {app.title}
+                </div>
+              </motion.button>
+            )
+          })}
+
+          {/* Open Windows (excluding pinned apps) */}
           <AnimatePresence>
-            {openWindows.map((window) => {
+            {openWindows
+              .filter(w => !pinnedApps.some(p => p.id === w.id))
+              .map((window) => {
               // Get icon for window - matching desktop icons
               const getWindowIcon = (id: string) => {
                 switch (id) {
-                  case 'terminal':
-                    return (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#00a4ef]">
-                        <rect x="2" y="3" width="20" height="18" rx="2" fill="currentColor" opacity="0.2"/>
-                        <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-                        <polyline points="6 15 10 11 6 7" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <line x1="12" y1="17" x2="18" y2="17" stroke="currentColor" strokeWidth="2"/>
-                      </svg>
-                    )
                   case 'projects':
                     return (
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-blue-400">
@@ -232,14 +327,24 @@ export default function Taskbar() {
           </button>
           
           {/* WiFi */}
-          <button className="p-1.5 hover:bg-white/10 rounded transition-colors">
+          <button 
+            className={`p-1.5 rounded transition-colors ${
+              activePopup === 'network' ? 'bg-white/15' : 'hover:bg-white/10'
+            }`}
+            onClick={() => togglePopup('network')}
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/80">
               <path d="M12 18c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0-4c2.2 0 4.2.9 5.7 2.3l-1.4 1.4C15.2 16.7 13.7 16 12 16s-3.2.7-4.3 1.7l-1.4-1.4C7.8 14.9 9.8 14 12 14zm0-4c3.3 0 6.3 1.3 8.5 3.5l-1.4 1.4C17.2 13 14.7 12 12 12s-5.2 1-7.1 2.9l-1.4-1.4C5.7 11.3 8.7 10 12 10zm0-4c4.4 0 8.4 1.8 11.3 4.7l-1.4 1.4C19.3 9.5 15.8 8 12 8S4.7 9.5 2.1 12.1L.7 10.7C3.6 7.8 7.6 6 12 6z"/>
             </svg>
           </button>
 
           {/* Volume */}
-          <button className="p-1.5 hover:bg-white/10 rounded transition-colors">
+          <button 
+            className={`p-1.5 rounded transition-colors ${
+              activePopup === 'volume' ? 'bg-white/15' : 'hover:bg-white/10'
+            }`}
+            onClick={() => togglePopup('volume')}
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white/80">
               <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-.9 7-4.5 7-8.8s-3-7.9-7-8.8z"/>
             </svg>
@@ -248,20 +353,54 @@ export default function Taskbar() {
           {/* Divider */}
           <div className="w-px h-5 bg-white/10 mx-1" />
 
-          {/* Date/Time */}
-          <button className="hover:bg-white/10 rounded px-2 py-1 transition-colors text-right">
-            <div className="text-[11px] text-white/90 leading-tight">{time}</div>
-            <div className="text-[11px] text-white/70 leading-tight">{date}</div>
-          </button>
+          {/* Date/Time with Calendar Popup */}
+          <div className="relative">
+            <button 
+              className={`rounded px-2 py-1 transition-colors text-right ${
+                activePopup === 'calendar' ? 'bg-white/15' : 'hover:bg-white/10'
+              }`}
+              onClick={() => togglePopup('calendar')}
+            >
+              <div className="text-[11px] text-white/90 leading-tight">{time}</div>
+              <div className="text-[11px] text-white/70 leading-tight">{date}</div>
+            </button>
+            <CalendarPopup 
+              isOpen={activePopup === 'calendar'} 
+              onClose={closeAllPopups} 
+            />
+          </div>
 
           {/* Notification */}
-          <button className="p-1.5 hover:bg-white/10 rounded transition-colors relative">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/70">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-            </svg>
-            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#00a4ef] rounded-full" />
-          </button>
+          <div className="relative">
+            <button 
+              className={`p-1.5 rounded transition-colors relative ${
+                activePopup === 'notifications' ? 'bg-white/15' : 'hover:bg-white/10'
+              }`}
+              onClick={() => togglePopup('notifications')}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/70">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#00a4ef] rounded-full" />
+            </button>
+            <NotificationCenter 
+              isOpen={activePopup === 'notifications'} 
+              onClose={closeAllPopups} 
+            />
+          </div>
+
+          {/* Volume Popup */}
+          <VolumePopup 
+            isOpen={activePopup === 'volume'} 
+            onClose={closeAllPopups} 
+          />
+
+          {/* Network Popup */}
+          <NetworkPopup 
+            isOpen={activePopup === 'network'} 
+            onClose={closeAllPopups} 
+          />
         </motion.div>
       </div>
     </>
