@@ -12,11 +12,11 @@ export default function MobileFallback() {
   const isMacOS = theme === 'macos'
 
   const sections = [
-    { id: 'about', title: 'About' },
+    { id: 'about', title: 'About Me' },
     { id: 'skills', title: 'Skills' },
     { id: 'experience', title: 'Experience' },
-    { id: 'projects', title: 'Projects' },
-    { id: 'architecture', title: 'Architecture' },
+    { id: 'ai-evaluations', title: 'AI Evaluations' },
+    { id: 'llm-projects', title: 'LLM Projects' },
     { id: 'contact', title: 'Contact' },
   ]
 
@@ -68,7 +68,7 @@ export default function MobileFallback() {
           <div className="space-y-4">
             {siteContent.experience.map((job, i) => (
               <div key={i} className="border-l-2 border-white/10 pl-3">
-                <div className="text-white text-sm font-medium">{job.role}</div>
+                <div className="text-white text-sm font-medium">{job.title}</div>
                 <div className="text-white/50 text-xs">{job.company} • {job.period}</div>
                 <ul className="mt-2 space-y-1">
                   {job.highlights.slice(0, 2).map((h, j) => (
@@ -83,43 +83,43 @@ export default function MobileFallback() {
           </div>
         )
       
-      case 'projects':
+      case 'ai-evaluations':
         return (
           <div className="space-y-3">
-            {siteContent.projects.map((project) => (
-              <div 
-                key={project.id}
-                className="p-3 rounded-lg bg-white/5"
-              >
-                <span 
+            {siteContent.portfolioSections.aiEvaluations.items.map((item) => (
+              <div key={item.id} className="p-3 rounded-lg bg-white/5">
+                <span
                   className="text-xs px-1.5 py-0.5 rounded"
                   style={{
                     backgroundColor: isMacOS ? 'rgba(0, 122, 255, 0.2)' : 'rgba(88, 166, 255, 0.2)',
                     color: isMacOS ? '#007aff' : '#58a6ff',
                   }}
                 >
-                  {project.category}
+                  {item.category}
                 </span>
-                <h4 className="text-white text-sm font-medium mt-1.5">{project.title}</h4>
-                <p className="text-white/50 text-xs mt-1">{project.description}</p>
+                <h4 className="text-white text-sm font-medium mt-1.5">{item.title}</h4>
+                <p className="text-white/50 text-xs mt-1">{item.description}</p>
               </div>
             ))}
           </div>
         )
-      
-      case 'architecture':
+
+      case 'llm-projects':
         return (
           <div className="space-y-3">
-            <p className="text-white/70 text-sm">{siteContent.architecture.summary}</p>
-            {siteContent.architecture.topics.slice(0, 3).map((topic) => (
-              <div key={topic.id} className="p-2 rounded bg-white/5">
-                <div className="text-white text-sm font-medium">{topic.title}</div>
-                <div className="text-white/50 text-xs mt-1">{topic.overview}</div>
-                {topic.principles && topic.principles.length > 0 && (
-                  <div className="text-white/40 text-xs mt-2">
-                    {topic.principles[0]}
-                  </div>
-                )}
+            {siteContent.portfolioSections.llmProjects.items.map((item) => (
+              <div key={item.id} className="p-3 rounded-lg bg-white/5">
+                <span
+                  className="text-xs px-1.5 py-0.5 rounded"
+                  style={{
+                    backgroundColor: isMacOS ? 'rgba(0, 122, 255, 0.2)' : 'rgba(88, 166, 255, 0.2)',
+                    color: isMacOS ? '#007aff' : '#58a6ff',
+                  }}
+                >
+                  {item.category}
+                </span>
+                <h4 className="text-white text-sm font-medium mt-1.5">{item.title}</h4>
+                <p className="text-white/50 text-xs mt-1">{item.description}</p>
               </div>
             ))}
           </div>

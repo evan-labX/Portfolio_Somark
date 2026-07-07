@@ -104,51 +104,17 @@ export default function Terminal() {
     return output
   }
 
-  const formatProjects = () => {
-    const { projects } = siteContent
-    let output = '\nProjects:\n─────────────────\n'
-    
-    projects.forEach(project => {
-      output += `\n▸ ${project.title} [${project.category}]\n`
-      output += `  ${project.description}\n`
-    })
-    
-    output += '\nUse "project <name>" for details (e.g., "project agentic-rag")'
-    return output
-  }
+  const formatPortfolio = () => {
+    const { portfolioSections } = siteContent
+    let output = '\nPortfolio Sections:\n─────────────────\n'
 
-  const formatProjectDetail = (projectId: string) => {
-    const project = siteContent.projects.find(p => p.id === projectId) as any
-    if (!project) return `Project "${projectId}" not found. Use "projects" to see available projects.`
-    
-    let output = `\n${project.title}\n${'═'.repeat(project.title.length)}\n`
-    output += `Category: ${project.category}\n\n`
-    output += `Problem:\n${project.problem}\n\n`
-    output += `Approach:\n${project.approach}\n\n`
-    
-    // Handle both 'contributions' and 'learnings'
-    const items = project.contributions || project.learnings || []
-    const itemsLabel = project.contributions ? 'Key Contributions' : 'Key Learnings'
-    output += `${itemsLabel}:\n`
-    items.forEach((l: string) => {
-      output += `  • ${l}\n`
-    })
-    
-    if (project.metrics && project.metrics.length > 0) {
-      output += `\nMetrics:\n`
-      project.metrics.forEach((m: string) => {
-        output += `  ✓ ${m}\n`
+    Object.values(portfolioSections).forEach(section => {
+      output += `\n▸ ${section.title} (${section.items.length})\n`
+      section.items.forEach(item => {
+        output += `  • ${item.title}\n`
       })
-    }
-    
-    if (project.tech && project.tech.length > 0) {
-      output += `\nTech: ${project.tech.join(', ')}`
-    }
-    
-    if (project.whyItMatters) {
-      output += `\n\n💡 ${project.whyItMatters}`
-    }
-    
+    })
+
     return output
   }
 
@@ -157,7 +123,7 @@ export default function Terminal() {
     let output = '\nWork Experience:\n─────────────────\n'
     
     experience.forEach(job => {
-      output += `\n▸ ${job.role} @ ${job.company}\n`
+      output += `\n▸ ${job.title} @ ${job.company}\n`
       output += `  ${job.period}\n`
       job.highlights.forEach(h => {
         output += `  • ${h}\n`
@@ -181,24 +147,6 @@ ${contact.message}
 `
   }
 
-  const formatArchitecture = () => {
-    const { architecture } = siteContent
-    let output = `\n${architecture.summary}\n\nTopics:\n─────────────────\n`
-    
-    architecture.topics.forEach(topic => {
-      output += `\n▸ ${topic.title}\n`
-      output += `  ${topic.overview}\n`
-      if (topic.principles && topic.principles.length > 0) {
-        output += `  Key principles:\n`
-        topic.principles.slice(0, 2).forEach(p => {
-          output += `    • ${p}\n`
-        })
-      }
-    })
-    
-    return output
-  }
-
   const processCommand = (input: string) => {
     const trimmed = input.trim().toLowerCase()
     const parts = trimmed.split(' ')
@@ -212,28 +160,24 @@ ${contact.message}
         output = siteContent.terminal.help
         break
       case 'about':
-        output = `\n${siteContent.about.summary}`
+        output = `\n${siteContent.positioning}\n\n${siteContent.summary.join('\n\n')}\n\n${siteContent.about.summary}`
+        openWindow('about-me')
         break
       case 'skills':
         output = formatSkills()
         break
       case 'projects':
-        output = formatProjects()
+        output = formatPortfolio()
         break
       case 'project':
-        if (args) {
-          output = formatProjectDetail(args)
-        } else {
-          output = 'Usage: project <project-id>\nExample: project agentic-rag'
-        }
+        output = 'Open a portfolio folder from the desktop: AI Evaluations, Coding Reviews, LLM Projects, ML Projects, or Scientific Examples.'
         break
       case 'experience':
         output = formatExperience()
         break
       case 'architecture':
-        output = formatArchitecture()
-        // Also open the architecture window
-        openWindow('architecture')
+        output = formatPortfolio()
+        openWindow('ai-evaluations')
         break
       case 'contact':
         output = formatContact()

@@ -21,7 +21,7 @@ interface AppItem {
 
 export default function SearchPanel({ isOpen, onClose }: SearchPanelProps) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [recentApps, setRecentApps] = useState<string[]>(['terminal', 'projects'])
+  const [recentApps, setRecentApps] = useState<string[]>(['terminal', 'about-me'])
   const inputRef = useRef<HTMLInputElement>(null)
   const popupRef = useRef<HTMLDivElement>(null)
   const { openWindow } = useWindows()
@@ -43,44 +43,77 @@ export default function SearchPanel({ isOpen, onClose }: SearchPanelProps) {
       action: () => { openWindow('terminal'); addToRecent('terminal'); onClose(); }
     },
     {
-      id: 'projects',
-      name: 'Projects',
-      description: 'View portfolio projects',
+      id: 'about-me',
+      name: 'About Me',
+      description: 'About, skills, and experience',
       type: 'app',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-blue-400">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      ),
+      action: () => { openWindow('about-me'); addToRecent('about-me'); onClose(); }
+    },
+    {
+      id: 'ai-evaluations',
+      name: 'AI Evaluations',
+      description: '5 evaluation examples',
+      type: 'app',
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-red-400">
           <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
         </svg>
       ),
-      action: () => { openWindow('projects'); addToRecent('projects'); onClose(); }
+      action: () => { openWindow('ai-evaluations'); addToRecent('ai-evaluations'); onClose(); }
     },
     {
-      id: 'architecture',
-      name: 'Architecture',
-      description: 'System design patterns',
+      id: 'coding-reviews',
+      name: 'Coding Reviews',
+      description: '3 code review examples',
       type: 'app',
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-400">
-          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-          <polyline points="2 17 12 22 22 17"/>
-          <polyline points="2 12 12 17 22 12"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-orange-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
         </svg>
       ),
-      action: () => { openWindow('architecture'); addToRecent('architecture'); onClose(); }
+      action: () => { openWindow('coding-reviews'); addToRecent('coding-reviews'); onClose(); }
     },
     {
-      id: 'gallery',
-      name: 'Gallery',
-      description: 'System design diagrams',
+      id: 'llm-projects',
+      name: 'LLM Projects',
+      description: '3 LLM project examples',
       type: 'app',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-400">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <polyline points="21 15 16 10 5 21"/>
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
         </svg>
       ),
-      action: () => { openWindow('gallery'); addToRecent('gallery'); onClose(); }
+      action: () => { openWindow('llm-projects'); addToRecent('llm-projects'); onClose(); }
+    },
+    {
+      id: 'ml-projects',
+      name: 'ML Projects',
+      description: '2 machine learning projects',
+      type: 'app',
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { openWindow('ml-projects'); addToRecent('ml-projects'); onClose(); }
+    },
+    {
+      id: 'scientific-examples',
+      name: 'Scientific Examples',
+      description: '2 scientific AI examples',
+      type: 'app',
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-cyan-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { openWindow('scientific-examples'); addToRecent('scientific-examples'); onClose(); }
     },
     {
       id: 'github',

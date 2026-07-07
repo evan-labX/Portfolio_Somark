@@ -18,15 +18,71 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
 
   const menuApps = [
     {
-      id: 'projects',
-      label: 'Projects',
-      badge: siteContent.badges.projects,
+      id: 'about-me',
+      label: 'About Me',
+      badge: siteContent.badges.aboutMe,
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-blue-400">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      ),
+      action: () => { openWindow('about-me'); onClose(); },
+    },
+    {
+      id: 'ai-evaluations',
+      label: 'AI Evaluations',
+      badge: siteContent.badges.aiEvaluations,
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-red-400">
           <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
         </svg>
       ),
-      action: () => { openWindow('projects'); onClose(); },
+      action: () => { openWindow('ai-evaluations'); onClose(); },
+    },
+    {
+      id: 'coding-reviews',
+      label: 'Coding Reviews',
+      badge: siteContent.badges.codingReviews,
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-orange-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { openWindow('coding-reviews'); onClose(); },
+    },
+    {
+      id: 'llm-projects',
+      label: 'LLM Projects',
+      badge: siteContent.badges.llmProjects,
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { openWindow('llm-projects'); onClose(); },
+    },
+    {
+      id: 'ml-projects',
+      label: 'ML Projects',
+      badge: siteContent.badges.mlProjects,
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { openWindow('ml-projects'); onClose(); },
+    },
+    {
+      id: 'scientific-examples',
+      label: 'Scientific Examples',
+      badge: siteContent.badges.scientificExamples,
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-cyan-400">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+        </svg>
+      ),
+      action: () => { openWindow('scientific-examples'); onClose(); },
     },
     {
       id: 'github',
@@ -66,19 +122,23 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
 
   // Curated top skills - most important ones
   const topSkills = [
-    'Multi-agent architectures',
-    'Agentic AI & Autonomous Systems',
-    'Long-context RAG',
-    'LangGraph / LangChain',
-    'AWS / GCP / Azure',
-    'Kubernetes & MLOps',
+    'Machine Learning',
+    'AI Model Evaluation',
+    'Artificial Intelligence (AI)',
+    'Python',
+    'PyTorch',
+    'Deep Learning',
+    'Data Analysis',
+    'LLM Applications',
+    'Scientific Reasoning',
+    'Technical Writing',
   ]
 
   // macOS Apple Menu items
   const macOSMenuItems = [
-    { label: 'About This Mac', action: () => { openWindow('projects'); onClose(); }, shortcut: null },
+    { label: 'About This Mac', action: () => { openWindow('about-me'); onClose(); }, shortcut: null },
     { type: 'divider' },
-    { label: 'System Preferences...', action: () => { openWindow('architecture'); onClose(); }, shortcut: null },
+    { label: 'System Preferences...', action: () => { openWindow('ai-evaluations'); onClose(); }, shortcut: null },
     { label: 'App Store...', action: () => { window.open(siteContent.contact.github, '_blank'); onClose(); }, shortcut: null },
     { type: 'divider' },
     { label: 'Recent Items', action: () => {}, shortcut: '►', submenu: true },
@@ -241,7 +301,7 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
             <div className="p-4 space-y-2">
               <div className="flex items-start gap-3">
                 <span className="text-white/50 text-sm w-24">Experience</span>
-                <span className="text-white/90 text-sm font-medium">13+ years</span>
+                <span className="text-white/90 text-sm font-medium">6+ years</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-white/50 text-sm w-24 shrink-0">Skills</span>
@@ -261,7 +321,7 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex-shrink-0">
                   <img 
-                    src="/imgs/atajan.png" 
+                    src="/imgs/Somark.jpg" 
                     alt={siteContent.meta.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -271,7 +331,7 @@ export default function StartMenu({ isOpen, onClose }: StartMenuProps) {
                 </div>
                 <div className="min-w-0">
                   <div className="text-white text-sm font-medium">{siteContent.meta.name}</div>
-                  <div className="text-white/50 text-xs">AI/ML Engineer</div>
+                  <div className="text-white/50 text-xs">AI Model Evaluation Specialist</div>
                 </div>
               </div>
               

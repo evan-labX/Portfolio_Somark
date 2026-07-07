@@ -21,7 +21,7 @@ export default function NetworkPopup({ isOpen, onClose }: NetworkPopupProps) {
   const popupRef = useRef<HTMLDivElement>(null)
 
   const networks: Network[] = [
-    { name: 'Atajan-Portfolio-5G', strength: 'excellent', secured: true, connected: true },
+    { name: 'Somark-Portfolio-5G', strength: 'excellent', secured: true, connected: true },
     { name: 'NETGEAR-Guest', strength: 'good', secured: true },
     { name: 'CoffeeShop_WiFi', strength: 'good', secured: false },
     { name: 'xfinitywifi', strength: 'fair', secured: false },

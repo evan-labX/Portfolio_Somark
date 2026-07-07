@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/context/ThemeContext'
 import { WindowProvider } from '@/context/WindowContext'
+import { WallpaperProvider } from '@/context/WallpaperContext'
 
 export const metadata: Metadata = {
-  title: 'Atajan | Principal AI/ML Engineer',
-  description: 'Feel free to use my laptop to learn about me. Principal AI/ML Engineer specializing in Agentic AI and autonomous systems.',
+  title: 'Somark | AI Model Evaluation Specialist',
+  description: 'Feel free to use my laptop to learn about me. AI Model Evaluation Specialist specializing in building and evaluating AI systems.',
 }
 
 export default function RootLayout({
@@ -17,9 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <ThemeProvider>
-          <WindowProvider>
-            {children}
-          </WindowProvider>
+          <WallpaperProvider>
+            <WindowProvider>
+              {children}
+            </WindowProvider>
+          </WallpaperProvider>
         </ThemeProvider>
       </body>
     </html>

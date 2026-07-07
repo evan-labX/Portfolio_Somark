@@ -196,7 +196,7 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
                   className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-white/20 shadow-2xl"
                 >
                   <img 
-                    src="/imgs/atajan.png" 
+                    src="/imgs/Somark.jpg" 
                     alt={siteContent.meta.name}
                     className="w-full h-full object-cover"
                   />

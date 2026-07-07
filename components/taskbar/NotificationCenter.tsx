@@ -103,18 +103,6 @@ export default function NotificationCenter({ isOpen, onClose }: NotificationCent
       ),
     },
     {
-      id: '2',
-      title: 'New Project Added',
-      message: `Check out the latest AI architecture: ${siteContent.projects[0]?.title || 'Agentic RAG'}`,
-      time: '2 minutes ago',
-      color: '#107c10',
-      icon: (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-        </svg>
-      ),
-    },
-    {
       id: '3',
       title: 'Skills Update',
       message: 'Expertise in Multi-agent architectures, LangGraph, and MLOps',

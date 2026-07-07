@@ -1,16 +1,28 @@
+import { codingReviewsSection } from './codingReviews'
+import { llmProjectsSection } from './llmProjects'
+import { mlProjectsSection } from './mlProjects'
+import { scientificExamplesSection } from './scientificExamples'
+
 export const siteContent = {
   meta: {
-    name: 'Atadzhan Baratov',
-    title: 'Principal AI/ML Engineer | Autonomous Systems • Multi-Agent Architectures • Long-Context RAG & AI Orchestration • Cloud Data & MLOps',
-    tagline: 'Building autonomous, agentic, production-grade AI systems with strong observability, governance, and reliability.',
-    welcomeMessage: "Welcome to my workstation. Feel free to explore.",
-    avatar: '/imgs/atajan.png',
-    location: 'London, UK',
+    name: 'Somark Lenka',
+    title:
+      'Machine Learning Researcher | AI Model Evaluation Specialist | LLM Systems | Scientific AI | Software Engineering',
+    tagline:
+      'Building and evaluating AI systems with a focus on model quality, reasoning reliability, and technical correctness.',
+    welcomeMessage: 'Welcome. Explore my work.',
+    avatar: '/imgs/Somark.jpg',
+    location: 'Dallas, TX, USA',
   },
 
   // Desktop icon badges
   badges: {
-    projects: '6',
+    aboutMe: null,
+    aiEvaluations: '5',
+    codingReviews: '7',
+    llmProjects: '5',
+    mlProjects: '6',
+    scientificExamples: '6',
     github: '25+',
     linkedin: '500+',
     resume: null,
@@ -21,17 +33,13 @@ export const siteContent = {
     welcome: `
 ┌───────────────────────────────────────────────────────────────────────────────┐
                                                                         
-    Welcome to Atadzhan's Workstation                                    
-    Principal AI/ML Engineer | London, UK                                
+    Welcome to Somark's Workstation                                        
+    Machine Learning Researcher | AI Model Evaluation Specialist                     
                                                                         
-    Autonomous Systems • Multi-Agent Architectures                       
-    Long-Context RAG & AI Orchestration • Cloud Data & MLOps             
+    LLM Systems | Scientific AI | Software Engineering                      
                                                                         
-    "Building autonomous AI systems that are reliable,                   
-     observable, and production-ready."                                  
-                                                                        
-    13+ years designing, scaling, and operating AI systems               
-    across research, fintech, cloud platforms, and enterprise.           
+    "I build and evaluate AI systems with a focus on model quality, reasoning reliability, and technical correctness. My background combines machine learning engineering, software development, medical research, and scientific analysis."                                      
+                                                                                     
                                                                        
     Type 'help' to explore available commands.                           
                                                                         
@@ -45,91 +53,125 @@ Available Commands:
   projects     - Browse my projects
   experience   - See my work history
   education    - View my education
-  architecture - My systems thinking approach
+  architecture - How I design AI systems
   philosophy   - My engineering principles
   contact      - Get in touch
   resume       - Download my resume
   clear        - Clear the terminal
   help         - Show this help message
 `,
-    prompt: 'atadzhan@workstation:~$',
-    unknownCommand: (cmd: string) => `Command not found: ${cmd}. Type 'help' for available commands.`,
+    prompt: 'somark@workstation:~$',
+    unknownCommand: (cmd: string) =>
+      `Command not found: ${cmd}. Type 'help' for available commands.`,
   },
 
-  positioning: "Principal AI Engineer building autonomous, agentic, production-grade AI systems with strong observability, governance, and reliability.",
+  positioning:
+    'Machine Learning Researcher and AI Model Evaluation Specialist building reliable AI systems across LLM workflows, machine learning, software engineering, and scientific reasoning.',
 
   summary: [
-    "Principal AI / Agentic AI Engineer with 13+ years of experience designing, scaling, and operating AI systems across research, fintech, cloud platforms, and the public sector.",
-    "I specialize in autonomous and agentic systems — long-horizon execution, multi-agent coordination, decision orchestration, memory-aware reasoning, and tool-driven workflows.",
-    "My work focuses on converting cutting-edge AI research into production systems that are observable, cost-efficient, compliant, and safe to deploy at scale.",
+    'Machine Learning Researcher and Software Engineer with hands-on experience building AI-powered applications, LLM systems, machine learning pipelines, and distributed software platforms.',
+    'I specialize in AI model evaluation, LLM workflows, retrieval-augmented systems, and machine learning applications that emphasize reasoning quality, reliability, and real-world usability.',
+    'My background spans software engineering, machine learning, scientific computing, healthcare research, and AI infrastructure, with a focus on building dependable systems and understanding how AI models behave in production.',
   ],
 
   philosophy: [
-    "Autonomy without observability is fragility.",
-    "Agent systems are stateful machines, not prompt chains.",
-    "Correctness and traceability matter more than speed.",
-    "Production constraints shape better AI systems.",
+    'Reliable AI starts with reliable evaluation.',
+    'Good reasoning matters more than impressive wording.',
+    'Simple systems with measurable behavior outperform complex systems without observability.',
+    'Machine learning is valuable only when it produces trustworthy outcomes.',
   ],
 
   about: {
-    summary: `Principal AI / Agentic AI Engineer with 13+ years of experience designing, 
-scaling, and operating AI systems across research, fintech, cloud platforms, and the public sector.
+    summary: `Machine Learning Researcher and Software Engineer with experience designing AI-powered applications, LLM systems, machine learning pipelines, and distributed software platforms.
 
-I specialize in autonomous and agentic systems — long-horizon execution, multi-agent coordination, 
-decision orchestration, memory-aware reasoning, and tool-driven workflows.
+My work focuses on AI model evaluation, LLM workflows, retrieval-augmented generation, and practical machine learning systems that prioritize correctness, reliability, and measurable performance.
 
-My work focuses on converting cutting-edge AI research into production systems that are 
-observable, cost-efficient, compliant, and safe to deploy at scale.`,
+I enjoy studying how AI systems reason, where they fail, and how structured evaluation, data quality, and software engineering practices can improve model behavior. My background combines software engineering, machine learning, medical research, and scientific analysis, allowing me to work across both technical implementation and domain-specific evaluation.`,
     focus: [
-      'Agentic AI & Multi-Agent Systems',
-      'RAG, Memory & Context Engineering',
-      'Evaluation & Reliability',
-      'Infrastructure & MLOps',
+      'AI Model Evaluation',
+      'Machine Learning Systems',
+      'LLM Applications & Agent Workflows',
+      'Retrieval-Augmented Generation (RAG)',
+      'Software Engineering',
+      'Scientific & Healthcare AI',
     ],
   },
 
   skills: {
-    agenticAI: {
-      title: 'Agentic AI & Autonomy',
+    aiEvaluation: {
+      title: 'AI Evaluation & LLM Systems',
       items: [
-        'Stateful agent architectures',
-        'Multi-agent coordination',
-        'Decision graphs & state machines',
-        'Tool-first execution',
-        'Interrupt / resume & checkpointing',
-        'Human-in-the-loop controls',
+        'AI model evaluation',
+        'LLM response assessment',
+        'Reasoning quality analysis',
+        'Hallucination detection',
+        'Prompt evaluation',
+        'Human feedback workflows',
+        'Structured evaluation rubrics',
+        'Model comparison & benchmarking',
       ],
     },
-    ragMemory: {
-      title: 'RAG, Memory & Context',
+    machineLearning: {
+      title: 'Machine Learning & Data Science',
       items: [
-        'Agent-optimized RAG',
-        'Hierarchical chunking',
-        'Hybrid retrieval strategies',
-        'Long-context reasoning',
-        'Token-budget optimization',
-        'Recursive memory consolidation',
+        'PyTorch',
+        'Deep Learning',
+        'Neural Networks',
+        'XGBoost',
+        'scikit-learn',
+        'Statistical Analysis',
+        'Feature Engineering',
+        'Model experimentation',
       ],
     },
-    evaluation: {
-      title: 'Evaluation, Reliability & Observability',
+    llmSystems: {
+      title: 'LLM Applications & Retrieval Systems',
       items: [
-        'Non-deterministic system evaluation',
-        'Long-horizon failure simulation',
-        'Behavioral stability metrics',
-        'Regression tracking for agents',
-        'Tracing (Prometheus, Grafana, Arize, Evidently)',
+        'RAG architectures',
+        'Agent workflows',
+        'LangChain',
+        'LlamaIndex',
+        'Vector search',
+        'Semantic retrieval',
+        'Embedding pipelines',
+        'Model orchestration',
       ],
     },
-    infrastructure: {
-      title: 'Infrastructure, MLOps & Cloud',
+    softwareEngineering: {
+      title: 'Software Engineering',
       items: [
-        'AWS, GCP, Azure',
-        'Kubernetes, Docker, Ray, SLURM',
-        'Terraform, CloudFormation',
-        'CI/CD for ML systems',
-        'GPU scheduling & autoscaling',
-        'Security, RBAC, GDPR-aligned controls',
+        'Python',
+        'TypeScript',
+        'FastAPI',
+        'Node.js',
+        'React',
+        'REST APIs',
+        'SQL',
+        'Distributed systems',
+      ],
+    },
+    cloudInfrastructure: {
+      title: 'Cloud, GPU & Infrastructure',
+      items: [
+        'Docker',
+        'Kubernetes',
+        'AWS',
+        'Azure',
+        'GCP',
+        'CUDA',
+        'GPU Computing',
+        'CI/CD',
+      ],
+    },
+    scientificComputing: {
+      title: 'Scientific & Healthcare Computing',
+      items: [
+        'Medical research',
+        'Scientific data analysis',
+        'Healthcare AI',
+        'Computational research',
+        'Evidence-based reasoning',
+        'Research documentation',
       ],
     },
   },
@@ -282,7 +324,7 @@ observable, cost-efficient, compliant, and safe to deploy at scale.`,
   architecture: {
     summary: `This section documents how I design, reason about, and evolve complex AI and agentic systems. 
 It reflects internal engineering thinking — not marketing material.`,
-    
+
     topics: [
       {
         id: 'agent-lifecycle',
@@ -619,234 +661,282 @@ It reflects internal engineering thinking — not marketing material.`,
 
   experience: [
     {
-      company: 'OpenAI',
-      role: 'Principal AI / ML Engineer',
-      period: 'Aug 2025 — Present',
-      description: 'Leading AI infrastructure and agentic systems development',
+      title: 'AI Researcher & Machine Learning Consultant',
+      company: 'Allotera Labs',
+      period: 'Jan 2024 – Present',
       highlights: [
-        'Designed distributed AI infrastructure across AWS, GCP, and Azure, improving GPU utilization by ~40%',
-        'Led development of modular ML platforms integrating data ingestion, pipeline orchestration, and automated fine-tuning',
-        'Built advanced RAG systems using LangChain, Pinecone, and vector databases for knowledge retrieval applications',
-        'Pioneered LoRA and QLoRA fine-tuning workflows, reducing iteration cycles by over 33%',
-        'Developed real-time observability frameworks using Prometheus, Grafana, Arize AI, and Evidently',
-        'Delivered £3M+ annual cost savings through GPU optimization and infrastructure efficiency',
+        'Develop AI-powered applications and machine learning systems.',
+        'Evaluate AI model behavior, reasoning quality, and response reliability.',
+        'Build LLM workflows, RAG systems, and agent-based applications.',
+        'Research GPU computing, distributed AI systems, and model optimization.',
       ],
     },
     {
-      company: 'OpenAI',
-      role: 'Senior Agentic AI Engineer',
-      period: 'Jan 2022 — Aug 2025',
-      description: 'Agentic architectures and autonomous systems',
+      title: 'Graduate Research Assistant – Machine Learning & Medical Data',
+      company: 'Washington University School of Medicine',
+      period: 'Jun 2020 – Dec 2023',
       highlights: [
-        'Led design of stateful agentic architectures enabling long-horizon reasoning with multi-agent coordination',
-        'Built graph-based agent controllers and decision state machines supporting recursive planning',
-        'Architected advanced RAG systems optimized for agent workflows with hierarchical chunking',
-        'Designed context and memory frameworks with token-budget optimization and recursive consolidation',
-        'Developed evaluation platforms for non-deterministic agents including failure simulation',
+        'Applied machine learning and statistical analysis to scientific and healthcare datasets.',
+        'Built research workflows using Python and modern data analysis tools.',
+        'Supported medical research through computational analysis and technical documentation.',
       ],
     },
     {
-      company: 'AWS',
-      role: 'Senior Cloud / MLOps Engineer',
-      period: '2018 — 2022',
-      description: 'Enterprise MLOps and cloud architecture',
+      title: 'Software Engineer',
+      company: 'Independent Projects',
+      period: 'Aug 2019 – Present',
       highlights: [
-        'Designed enterprise-grade MLOps frameworks using SageMaker, Terraform, and CI/CD automation',
-        'Reduced model deployment timelines from weeks to days through containerized ML pipelines',
-        'Built scalable AutoML and feature engineering systems delivering multi-million-pound savings',
-        'Delivered production ML architecture guidance to Fortune 500 clients across fintech and healthcare',
-      ],
-    },
-    {
-      company: 'Revolut',
-      role: 'Data Engineer / ML Systems Developer',
-      period: '2015 — 2017',
-      description: 'Real-time ML systems for fintech',
-      highlights: [
-        'Engineered real-time data pipelines processing 10M+ transactions daily using Kafka and Spark',
-        'Developed fraud detection and credit risk models improving accuracy and latency',
-        'Built feature stores reducing model delivery timelines by ~50%',
-        'Integrated ML systems into customer-facing products for risk scoring and KYC automation',
-      ],
-    },
-    {
-      company: 'Capgemini UK',
-      role: 'Software Engineer',
-      period: '2012 — 2015',
-      description: 'Enterprise systems and public sector',
-      highlights: [
-        'Developed enterprise APIs and microservices for large public-sector systems',
-        'Automated cloud migrations and CI/CD pipelines to improve deployment reliability',
-        'Built large-scale ETL and analytics workflows processing terabytes of data nightly',
-      ],
-    },
-    {
-      company: 'Microsoft Research Cambridge',
-      role: 'Machine Learning Intern',
-      period: '2011 — 2012',
-      description: 'Applied research in computer vision',
-      highlights: [
-        'Conducted applied research in computer vision and deep learning',
-        'Built GPU-accelerated training pipelines using CUDA and PyTorch',
-        'Developed early CNN prototypes for object detection and image classification',
-        'Co-authored internal research reports on visual representation learning',
+        'Built production software systems, APIs, automation tools, and AI-enabled applications.',
+        'Worked across cloud platforms, backend systems, and data infrastructure.',
+        'Integrated machine learning capabilities into software products.',
       ],
     },
   ],
+
+  portfolioSections: {
+    aiEvaluations: {
+      title: 'AI Evaluations',
+      overview: `These examples demonstrate how I evaluate AI-generated outputs across medical/scientific reasoning, coding, machine learning, and LLM system behavior. Each evaluation uses structured criteria: accuracy, reasoning quality, completeness, clarity, safety, and usefulness.
+
+This format is aligned with the kind of work AI training platforms ask experts to do: evaluate outputs, apply rubrics, identify reasoning failures, and provide high-quality feedback.`,
+      items: [
+        {
+          id: 'medical-reasoning',
+          title: 'Medical Reasoning Evaluation',
+          category: 'Medical / Healthcare',
+          description: 'Evaluate an AI response to a healthcare question about Type 2 diabetes first-line treatment.',
+          diagramType: 'medical-treatment',
+          task: 'Evaluate the following AI response to a healthcare question.',
+          prompt: 'What are first-line treatment options for Type 2 diabetes?',
+          modelResponse:
+            'Type 2 diabetes is usually treated first with metformin. Patients may also need lifestyle changes such as diet and exercise. If blood sugar remains high, doctors may add other medications like insulin or GLP-1 drugs.',
+          rubric: [
+            { category: 'Medical accuracy', score: '8/10' },
+            { category: 'Completeness', score: '7/10' },
+            { category: 'Safety awareness', score: '7/10' },
+            { category: 'Clarity', score: '9/10' },
+            { category: 'Patient-specific nuance', score: '6/10' },
+          ],
+          overallScore: '7.5/10',
+          strengths: [
+            'The response correctly identifies metformin and lifestyle changes as common first-line components.',
+            'It is easy to understand and avoids overly technical language.',
+          ],
+          issues: [
+            'It is too general. It does not mention that treatment depends on A1C level, cardiovascular risk, kidney disease, weight goals, contraindications, and patient-specific factors.',
+            'It also jumps to insulin without enough context.',
+          ],
+          finalFeedback:
+            'This is a reasonable beginner-level answer, but it needs more clinical nuance. A stronger answer would explain that first-line care often includes lifestyle intervention and metformin, while GLP-1 receptor agonists or SGLT2 inhibitors may be prioritized earlier in patients with cardiovascular disease, chronic kidney disease, obesity, or other risk factors. It should also avoid presenting treatment as one fixed pathway.',
+          platformValue: [
+            'Medical accuracy',
+            'Missing caveats',
+            'Overgeneralization',
+            'Safety-sensitive content',
+            'Explanation quality',
+          ],
+        },
+        {
+          id: 'coding-evaluation',
+          title: 'Coding Evaluation',
+          category: 'Software Engineering',
+          description: 'Evaluate whether a Python API fetch function is correct, safe, and production-ready.',
+          diagramType: 'code-review',
+          task: 'Evaluate whether the code is correct, safe, and production-ready.',
+          prompt: 'Review this Python function used to fetch JSON data from an API.',
+          modelResponse: `import requests
+
+def fetch_data(url):
+    response = requests.get(url)
+    return response.json()`,
+          rubric: [
+            { category: 'Correctness', score: '6/10' },
+            { category: 'Reliability', score: '3/10' },
+            { category: 'Security', score: '5/10' },
+            { category: 'Error handling', score: '2/10' },
+            { category: 'Production readiness', score: '3/10' },
+          ],
+          overallScore: '4/10',
+          strengths: [
+            'The code is simple and may work for successful API responses that return valid JSON.',
+          ],
+          issues: [
+            'The function has no timeout, so it can hang indefinitely.',
+            'It does not check HTTP status codes.',
+            'It does not handle network errors, invalid JSON, redirects, large payloads, or untrusted URLs.',
+            'It also provides no logging or structured error response.',
+          ],
+          improvedVersion: `import requests
+from requests.exceptions import RequestException, JSONDecodeError
+
+def fetch_data(url: str, timeout: int = 10) -> dict:
+    try:
+        response = requests.get(url, timeout=timeout)
+        response.raise_for_status()
+        return response.json()
+    except JSONDecodeError as exc:
+        raise ValueError("Response was not valid JSON") from exc
+    except RequestException as exc:
+        raise RuntimeError(f"API request failed: {exc}") from exc`,
+          finalFeedback:
+            'The original function is acceptable for a quick script, but not production-ready. The improved version adds timeout protection, HTTP status validation, and explicit exception handling, which makes the behavior safer and easier to debug.',
+          platformValue: [
+            'Code correctness',
+            'Edge cases',
+            'Reliability',
+            'Production readiness',
+            'Secure engineering habits',
+          ],
+        },
+        {
+          id: 'rag-evaluation',
+          title: 'LLM / RAG Answer Evaluation',
+          category: 'LLM Systems',
+          description: 'Evaluate an AI answer about enterprise RAG deployment risks generated from a retrieval-augmented system.',
+          diagramType: 'rag-risks',
+          task: 'Evaluate an AI answer generated from a retrieval-augmented system.',
+          prompt: 'Summarize the key risks in deploying a RAG system for enterprise documents.',
+          modelResponse:
+            'RAG systems are useful because they retrieve relevant documents and generate accurate answers. The main risks are slow performance and sometimes retrieving the wrong document. These can be solved by using better embeddings and faster databases.',
+          rubric: [
+            { category: 'Accuracy', score: '6/10' },
+            { category: 'Completeness', score: '4/10' },
+            { category: 'Technical depth', score: '5/10' },
+            { category: 'Practical usefulness', score: '5/10' },
+            { category: 'Risk awareness', score: '4/10' },
+          ],
+          overallScore: '4.8/10',
+          strengths: [
+            'The answer correctly identifies retrieval quality and latency as important risks.',
+          ],
+          issues: [
+            'The answer is incomplete. It misses major enterprise RAG risks including access control leakage, stale documents, chunking failures, poor metadata, hallucinated synthesis, citation mismatch, data governance, evaluation gaps, and auditability.',
+          ],
+          betterAnswerDirection: [
+            'Retrieval relevance and ranking quality',
+            'Permission-aware retrieval',
+            'Stale or conflicting source documents',
+            'Hallucination despite retrieval',
+            'Missing citations or wrong citations',
+            'Latency and cost tradeoffs',
+            'Evaluation datasets and regression testing',
+            'Monitoring, logging, and user feedback loops',
+          ],
+          finalFeedback:
+            'The model gave a shallow answer. It named two valid issues, but missed the real enterprise risks that usually determine whether a RAG system can be trusted in production. The answer needs stronger coverage of security, governance, evaluation, and operational failure modes.',
+          platformValue: [
+            'AI system failure modes',
+            'Enterprise software context',
+            'RAG architecture understanding',
+            'Risk identification',
+            'Structured feedback',
+          ],
+        },
+        {
+          id: 'ml-evaluation',
+          title: 'Machine Learning Answer Evaluation',
+          category: 'Machine Learning',
+          description: 'Evaluate an AI answer explaining overfitting in machine learning.',
+          diagramType: 'ml-overfitting',
+          task: 'Evaluate an AI answer explaining overfitting.',
+          prompt: 'What is overfitting in machine learning, and how can it be reduced?',
+          modelResponse:
+            'Overfitting happens when a model memorizes the training data and performs badly on new data. You can fix it by using more data, reducing model complexity, regularization, dropout, and cross-validation.',
+          rubric: [
+            { category: 'Accuracy', score: '9/10' },
+            { category: 'Completeness', score: '8/10' },
+            { category: 'Clarity', score: '9/10' },
+            { category: 'Technical depth', score: '7/10' },
+            { category: 'Examples', score: '6/10' },
+          ],
+          overallScore: '8/10',
+          strengths: [
+            'The answer is mostly correct. It defines overfitting clearly and lists standard mitigation techniques.',
+          ],
+          issues: [
+            'It says "fix it," which is too absolute. Overfitting is usually reduced, not guaranteed to be eliminated.',
+            'It also does not explain the training-vs-validation performance gap, nor does it include a concrete example.',
+          ],
+          finalFeedback:
+            'Strong answer overall. To improve, the model should mention that overfitting is detected when training performance is much better than validation/test performance. It should also add a short example, such as a decision tree that memorizes noise in a small dataset.',
+          platformValue: [
+            'ML concept fluency',
+            'Nuance in scoring',
+            'Good-but-incomplete answer evaluation',
+            'Practical feedback style',
+          ],
+        },
+        {
+          id: 'scientific-reasoning',
+          title: 'Scientific Reasoning Evaluation',
+          category: 'Scientific / Biology',
+          description: 'Evaluate an AI explanation of how CRISPR-Cas9 gene editing works.',
+          diagramType: 'crispr-mechanism',
+          task: 'Evaluate an AI explanation of CRISPR-Cas9.',
+          prompt: 'Explain how CRISPR-Cas9 works.',
+          modelResponse:
+            'CRISPR-Cas9 is a gene-editing technology. It uses a guide RNA to find a target DNA sequence, and Cas9 cuts the DNA. The cell then repairs the cut, which can disable or modify a gene.',
+          rubric: [
+            { category: 'Scientific accuracy', score: '8/10' },
+            { category: 'Completeness', score: '7/10' },
+            { category: 'Clarity', score: '9/10' },
+            { category: 'Missing caveats', score: '6/10' },
+          ],
+          overallScore: '7.5/10',
+          strengths: [
+            'The answer correctly describes the basic role of guide RNA and Cas9.',
+            'It is clear and accessible.',
+          ],
+          issues: [
+            'It misses important caveats: PAM sequence requirement, off-target effects, repair mechanisms such as NHEJ and HDR, and the distinction between gene knockout and precise editing.',
+          ],
+          finalFeedback:
+            'Good high-level explanation. A stronger answer should mention that Cas9 requires a nearby PAM sequence, that repair may happen through error-prone non-homologous end joining or template-guided homology-directed repair, and that off-target edits are an important limitation.',
+          platformValue: [
+            'Scientific evaluation ability',
+            'Accuracy vs completeness tradeoffs',
+            'Accessible explanation assessment',
+            'Domain caveat identification',
+          ],
+        },
+      ],
+    },
+    codingReviews: codingReviewsSection,
+    llmProjects: llmProjectsSection,
+    mlProjects: mlProjectsSection,
+    scientificExamples: scientificExamplesSection,
+  },
 
   education: [
     {
-      institution: 'University of Northampton',
-      degree: 'MSc in Data Science and Artificial Intelligence',
-      period: '2010 — 2011',
-    },
-    {
-      institution: 'University of Northampton',
-      degree: 'BSc in Computer Science',
-      period: '2007 — 2010',
+      institution: 'University of Washington',
+      degree: 'B.S. in Computer Science',
+      period: '2010 — 2014',
     },
   ],
 
-  closing: "This portfolio reflects my work at the intersection of agentic AI, systems engineering, and large-scale infrastructure — focused on making autonomous systems reliable, observable, and production-ready.",
+  closing:
+    'This portfolio reflects my focus on building AI systems that are measurable, reliable, and safe to ship in real products.',
 
   contact: {
-    email: 'atajanbaratov360@gmail.com',
-    phone: '+44 7418356565',
-    location: 'London, UK',
-    github: 'https://github.com/AI-God-Dev',
-    linkedin: 'https://www.linkedin.com/in/ai-god-dev/',
-    resume: 'https://docs.google.com/document/d/1zQ8rH7HQKlcR0xSUY1fzBUpbl3dba3-5/edit#bookmark=id.57x1n7uyo5te',
-    message: "Open to discussing agentic AI systems, autonomous architectures, or production AI challenges. Let's build something reliable.",
+    email: 'lenkasomark@gmail.com',
+    phone: '+1 314 441 8207',
+    location: 'Dallas, TX, USA',
+    github: 'https://github.com/somarklenka',
+    linkedin: 'https://www.linkedin.com/in/somark-lenka-243161195/',
+    resume: 'https://docs.google.com/document/d/1HcDFqVNhGVw83M-yaAInwqpzOAXtVKpjRw1bMfDb2wc/edit?tab=t.0',
+    message:
+      'Happy to talk about AI product engineering, agent systems, retrieval systems, or production LLM workflows.',
   },
 
-  systemDesignGallery: [
-    {
-      id: "scalable-production-agentic-rag-pipeline",
-      title: "Scalable, Production-Grade Agentic RAG Pipeline",
-      category: "RAG & Retrieval",
-      image: "/diagrams/Scalable-RAG-Pipeline.png",
-      context: "System design diagram for large-scale, production agentic RAG systems",
-      description:
-        "Presents a layered, production-grade agentic RAG architecture designed to scale across large datasets and high query volumes, while maintaining low latency, observability, and operational reliability.",
-      keyTakeaways: [
-        "Layered architecture cleanly separates data ingestion, agent reasoning, model serving, and infrastructure concerns",
-        "Agentic pipelines enable parallel reasoning, retrieval, and tool usage instead of linear request flows",
-        "Autoscaling GPU and CPU workloads is essential for cost-efficient, low-latency RAG at scale",
-        "Vector databases, graph stores, and LLM services must be orchestrated as distributed systems",
-        "Monitoring, evaluation, and tracing are mandatory layers for operating agentic RAG reliably in production",
-      ],
-    },
-    
-    {
-      id: "self-improving-agentic-rag",
-      title: "Self-Improving Agentic RAG System",
-      category: "RAG & Retrieval",
-      image: "/diagrams/Self-Improving-Agentic-RAG-System.png",
-      context: "System design diagram for agentic RAG optimization",
-      description:
-        "Illustrates an agentic RAG system that continuously improves itself by combining specialist agent collaboration with multi-dimensional evaluation and evolutionary optimization.",
-      keyTakeaways: [
-        "Agentic RAG behaves as a high-dimensional design space rather than a fixed pipeline",
-        "Multi-dimensional evaluation enables trade-off analysis beyond single-metric optimization",
-        "Specialist agents can diagnose weaknesses and propose targeted procedural improvements",
-        "Pareto-front analysis surfaces optimal strategies instead of a single best configuration",
-        "Human-in-the-loop oversight remains essential for high-stakes domains like healthcare",
-      ],
-    },
-    
-    {
-      id: "production-grade-agentic-architecture",
-      title: "Production-Grade Agentic AI System Architecture",
-      category: "Agentic Systems",
-      image: "/diagrams/Production-Grade-Agentic-System.png",
-      context: "System design diagram for deploying agentic AI in production",
-      description:
-        "Depicts a layered architecture for running agentic AI systems reliably in production, separating concerns such as agent orchestration, context management, middleware, security, and infrastructure.",
-      keyTakeaways: [
-        "Production agentic systems require explicit architectural layers, not monolithic services",
-        "Clear separation between service layer, middleware, and infrastructure improves reliability and evolvability",
-        "Agent behavior and system reliability must be monitored as independent but equally critical dimensions",
-        "Context and memory management are first-class production concerns, not implementation details",
-        "Observability across latency, cost, failures, and agent behavior is essential for operating at scale",
-      ],
-    },
-    {
-      id: "adaptive-agentic-rag-langgraph",
-      title: "Adaptive Agentic RAG with Dynamic Query Routing",
-      category: "RAG & Retrieval",
-      image: "/diagrams/Agentic-Adaptive-RAG-with-LangGraph.gif",
-      context: "System design diagram for adaptive, production-grade agentic RAG",
-      description:
-        "Shows an adaptive agentic RAG workflow where LLM agents dynamically decide whether to retrieve documents, invoke tools, search external sources, or generate responses directly based on query analysis and response validation.",
-      keyTakeaways: [
-        "Adaptive RAG introduces decision points that determine when retrieval is necessary instead of retrieving by default",
-        "Query rewriting improves retrieval quality before engaging downstream sources",
-        "Dynamic routing enables agents to choose between vector databases, tools, or external search based on intent",
-        "Response relevance is explicitly evaluated before finalizing output, enabling self-correction loops",
-        "Agentic control flow (as implemented with LangGraph) is essential for production-safe, non-linear RAG systems",
-      ],
-    },
-    {
-      id: "traditional-vs-agentic-rag",
-      title: "Traditional RAG vs Agentic RAG",
-      category: "RAG & Retrieval",
-      image: "/diagrams/Agentic-RAG-with-LangGraph.webp",
-      context: "Conceptual system design comparison",
-      description:
-        "Compares a linear, single-pass RAG pipeline with an agentic RAG architecture that introduces planning, query refinement, dynamic routing, and autonomous decision-making across multiple information sources.",
-      keyTakeaways: [
-        "Traditional RAG follows a fixed retrieve-then-generate flow with limited adaptability",
-        "Agentic RAG introduces planning, observation, and action loops that enable iterative refinement",
-        "Dynamic routing allows agents to choose between vector search, keyword search, or web search based on query intent",
-        "Agentic systems can detect out-of-domain questions and autonomously expand their information sources",
-        "The added control flow improves robustness in real-world, unpredictable user queries",
-      ],
-    },
-    {
-      id: "end-to-end-mlops-architecture",
-      title: "End-to-End MLOps Architecture & Workflow",
-      category: "MLOps & Infra",
-      image: "/diagrams/End-to-End-MLOps-Architecture-and-Workflow.png",
-      context: "System design diagram for production ML lifecycle and automation",
-      description:
-        "Illustrates a comprehensive, end-to-end MLOps architecture covering the full machine learning lifecycle, from business problem formulation and data ingestion to experimentation, automated training pipelines, deployment, monitoring, and continuous improvement.",
-      keyTakeaways: [
-        "MLOps systems must span the entire lifecycle, not just model training and deployment",
-        "Clear separation between data engineering, experimentation, and production pipelines improves scalability and governance",
-        "Feature engineering, metadata tracking, and artifact versioning are foundational for reproducibility",
-        "Workflow orchestration and CI/CD enable reliable automation across training, validation, and deployment stages",
-        "Continuous monitoring and feedback loops are essential for retraining, performance management, and long-term model health",
-      ],
-    },
-    {
-      id: "enterprise-ai-platform-governance-salesforce",
-      title: "Enterprise AI Platform with Governance & Lifecycle Controls",
-      category: "Security & Governance",
-      image: "/diagrams/Enterprise-AI-Platform-Governance.png",
-      context: "System design diagram for unified AI platform integration and governance",
-      description:
-        "Depicts an enterprise AI platform integrated into a core business system, showing how LLM/AI gateways, inference services, artifact versioning, feature stores, monitoring, and access controls combine to support trusted AI deployment at scale.",
-      keyTakeaways: [
-        "A unified AI platform requires clear separation between client apps, core business systems, and AI runtime services",
-        "Governance spans the full lifecycle: data access, model versioning, deployment controls, and auditability",
-        "LLM/AI gateways act as control points for routing, policy enforcement, and safe model access",
-        "Artifact/versioning services and model stores enable reproducibility and controlled rollouts",
-        "Operational monitoring and metrics services are essential for reliability, drift detection, and accountability",
-      ],
-    },
-    
-    
-
-  ],
-
+  systemDesignGallery: [],
   galleryCategories: [
-    "Agentic Systems",
-    "RAG & Retrieval",
-    "ML Platforms",
-    "MLOps & Infra",
-    "Evaluation & Observability",
-    "Security & Governance",
+    'Agentic Systems',
+    'RAG & Retrieval',
+    'Ranking & Personalization',
+    'Platform Engineering',
+    'Evaluation & Observability',
   ],
-}
+};
 
-export type SiteContent = typeof siteContent
+export type SiteContent = typeof siteContent;

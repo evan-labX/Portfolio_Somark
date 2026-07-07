@@ -15,10 +15,10 @@ export default function CortanaPanel({ isOpen, onClose }: CortanaPanelProps) {
   const { openWindow } = useWindows()
 
   const suggestions = [
-    { text: 'Show me your projects', command: 'projects' },
+    { text: 'Show me AI evaluations', command: 'projects' },
     { text: 'Tell me about yourself', command: 'about' },
     { text: 'What are your skills?', command: 'skills' },
-    { text: 'Open architecture designs', command: 'architecture' },
+    { text: 'Open About Me', command: 'about' },
   ]
 
   // Click outside to close
